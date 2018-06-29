@@ -11,6 +11,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -36,11 +38,11 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         UsersLog = new javax.swing.JDialog();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        UsersJlist = new javax.swing.JList<>();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        UsersJtree = new javax.swing.JTable();
         AlbumsLig = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
         AlbumTable = new javax.swing.JTable();
@@ -73,6 +75,20 @@ public class GUI extends javax.swing.JFrame {
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
+        Explore = new javax.swing.JDialog();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        AlbumTablePreSHOW = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TableSoncs = new javax.swing.JTable();
+        jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        PlayLCB = new javax.swing.JComboBox<>();
+        jButton22 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        showplaylists = new javax.swing.JDialog();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        Jtree = new javax.swing.JTree();
+        jButton24 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -81,9 +97,6 @@ public class GUI extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-
-        UsersJlist.setModel(new DefaultListModel());
-        jScrollPane1.setViewportView(UsersJlist);
 
         jButton7.setText("Agregar");
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -106,14 +119,37 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        UsersJtree.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Usuario", "Contraseña"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(UsersJtree);
+        if (UsersJtree.getColumnModel().getColumnCount() > 0) {
+            UsersJtree.getColumnModel().getColumn(0).setResizable(false);
+            UsersJtree.getColumnModel().getColumn(1).setResizable(false);
+            UsersJtree.getColumnModel().getColumn(2).setResizable(false);
+        }
+
         javax.swing.GroupLayout UsersLogLayout = new javax.swing.GroupLayout(UsersLog.getContentPane());
         UsersLog.getContentPane().setLayout(UsersLogLayout);
         UsersLogLayout.setHorizontalGroup(
             UsersLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UsersLogLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(UsersLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -125,14 +161,14 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(UsersLogLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(UsersLogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(UsersLogLayout.createSequentialGroup()
                         .addComponent(jButton7)
                         .addGap(40, 40, 40)
                         .addComponent(jButton8)
                         .addGap(61, 61, 61)
-                        .addComponent(jButton9))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addComponent(jButton9)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         AlbumTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -163,6 +199,7 @@ public class GUI extends javax.swing.JFrame {
             AlbumTable.getColumnModel().getColumn(0).setResizable(false);
             AlbumTable.getColumnModel().getColumn(1).setResizable(false);
             AlbumTable.getColumnModel().getColumn(2).setResizable(false);
+            AlbumTable.getColumnModel().getColumn(2).setHeaderValue("Canciones");
         }
 
         jButton10.setText("Refresh");
@@ -373,10 +410,25 @@ public class GUI extends javax.swing.JFrame {
         );
 
         jButton15.setText("Explorar");
+        jButton15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton15MouseClicked(evt);
+            }
+        });
 
         jButton16.setText("Crear PlayList");
+        jButton16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton16MouseClicked(evt);
+            }
+        });
 
         jButton17.setText("Ver Playlists");
+        jButton17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton17MouseClicked(evt);
+            }
+        });
 
         jButton18.setText("Ver Favoritos");
 
@@ -394,7 +446,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         LoggedHomeScreenLayout.setVerticalGroup(
             LoggedHomeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,6 +462,176 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton19)
                 .addContainerGap(117, Short.MAX_VALUE))
+        );
+
+        AlbumTablePreSHOW.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Artista"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(AlbumTablePreSHOW);
+        if (AlbumTablePreSHOW.getColumnModel().getColumnCount() > 0) {
+            AlbumTablePreSHOW.getColumnModel().getColumn(0).setResizable(false);
+            AlbumTablePreSHOW.getColumnModel().getColumn(1).setResizable(false);
+        }
+
+        TableSoncs.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Artista", "Duracion", "Genero"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(TableSoncs);
+        if (TableSoncs.getColumnModel().getColumnCount() > 0) {
+            TableSoncs.getColumnModel().getColumn(0).setResizable(false);
+            TableSoncs.getColumnModel().getColumn(1).setResizable(false);
+            TableSoncs.getColumnModel().getColumn(2).setResizable(false);
+            TableSoncs.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        jButton20.setText("Load Albums");
+        jButton20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton20MouseClicked(evt);
+            }
+        });
+
+        jButton21.setText("Ver Canciones");
+        jButton21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton21MouseClicked(evt);
+            }
+        });
+
+        jButton22.setText("Agregar");
+        jButton22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton22MouseClicked(evt);
+            }
+        });
+
+        jButton23.setText("Refresh PlayLists");
+        jButton23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton23MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ExploreLayout = new javax.swing.GroupLayout(Explore.getContentPane());
+        Explore.getContentPane().setLayout(ExploreLayout);
+        ExploreLayout.setHorizontalGroup(
+            ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ExploreLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton22)
+                    .addGroup(ExploreLayout.createSequentialGroup()
+                        .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(118, 118, 118)
+                        .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(PlayLCB, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton23)
+                                .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+        ExploreLayout.setVerticalGroup(
+            ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ExploreLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ExploreLayout.createSequentialGroup()
+                        .addComponent(jButton20)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton21)))
+                .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ExploreLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(51, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ExploreLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton23)
+                        .addGap(18, 18, 18)
+                        .addComponent(PlayLCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jButton22)
+                        .addGap(245, 245, 245))))
+        );
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Playlists");
+        Jtree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane5.setViewportView(Jtree);
+
+        jButton24.setText("Cargar Arbol");
+        jButton24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton24MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout showplaylistsLayout = new javax.swing.GroupLayout(showplaylists.getContentPane());
+        showplaylists.getContentPane().setLayout(showplaylistsLayout);
+        showplaylistsLayout.setHorizontalGroup(
+            showplaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showplaylistsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addComponent(jButton24)
+                .addGap(51, 51, 51))
+        );
+        showplaylistsLayout.setVerticalGroup(
+            showplaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(showplaylistsLayout.createSequentialGroup()
+                .addGroup(showplaylistsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(showplaylistsLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(showplaylistsLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton24)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -546,12 +768,14 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
         // TODO add your handling code here:
-        DefaultListModel modelo = (DefaultListModel) UsersJlist.getModel();
-        modelo.removeAllElements();
+
+        DefaultTableModel modelo = (DefaultTableModel) UsersJtree.getModel();
+        modelo.getDataVector().removeAllElements();
+        revalidate();
         for (int i = 0; i < users.size(); i++) {
-            modelo.addElement(users.get(i));
+            modelo.addRow(new Object[]{users.get(i).getNombre(), users.get(i).getUsername(), users.get(i).getPassword()});
         }
-        UsersJlist.setModel(modelo);
+        UsersJtree.setModel(modelo);
 
     }//GEN-LAST:event_jButton9MouseClicked
 
@@ -577,15 +801,17 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
         // TODO add your handling code here:
-        if (UsersJlist.getSelectedIndex() >= 0) {
-            int row = UsersJlist.getSelectedIndex();
+        if (UsersJtree.getSelectedRow() >= 0) {
+            int row = UsersJtree.getSelectedRow();
             users.remove(row);
-            DefaultListModel modelo = new DefaultListModel();
-            modelo.removeAllElements();
+
+            DefaultTableModel modelo = (DefaultTableModel) UsersJtree.getModel();
+            modelo.getDataVector().removeAllElements();
+            revalidate();
             for (int i = 0; i < users.size(); i++) {
-                modelo.addElement(users.get(i));
+                modelo.addRow(new Object[]{users.get(i).getNombre(), users.get(i).getUsername(), users.get(i).getPassword()});
             }
-            UsersJlist.setModel(modelo);
+            UsersJtree.setModel(modelo);
         }
     }//GEN-LAST:event_jButton8MouseClicked
 
@@ -593,7 +819,7 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         AlbumsLig.pack();
         AlbumsLig.setVisible(true);
-        
+
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
@@ -613,8 +839,10 @@ public class GUI extends javax.swing.JFrame {
         if (AlbumTable.getSelectedRow() >= 0) {
             int row = AlbumTable.getSelectedRow();
             albums.remove(row);
-            AlbumTable.setModel(new DefaultTableModel());
+
             DefaultTableModel modelo = (DefaultTableModel) AlbumTable.getModel();
+            modelo.getDataVector().removeAllElements();
+            revalidate();
             for (int i = 0; i < albums.size(); i++) {
                 String nombre = albums.get(i).getNombre();
                 String artista = albums.get(i).getArtista();
@@ -628,6 +856,7 @@ public class GUI extends javax.swing.JFrame {
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
         // TODO add your handling code here:
         DefaultTableModel modelo = (DefaultTableModel) AlbumTable.getModel();
+        modelo.getDataVector().removeAllElements();
         for (int i = 0; i < albums.size(); i++) {
             String nombre = albums.get(i).getNombre();
             String artista = albums.get(i).getArtista();
@@ -647,10 +876,10 @@ public class GUI extends javax.swing.JFrame {
                 int duracion = Integer.parseInt(DurationSong.getText());
                 String durr = Integer.toString(duracion);
                 String genero = GenderSong.getText();
-                cancion nueva = new cancion(nombre,artista,durr,genero);
-                if(songs.contains(nueva)){
+                cancion nueva = new cancion(nombre, artista, durr, genero);
+                if (songs.contains(nueva)) {
                     JOptionPane.showMessageDialog(SongsLog, "Cancion Ya existe,");
-                }else{
+                } else {
                     albums.get(album).AddCancion(nueva);
                     JOptionPane.showMessageDialog(SongsLog, "Cancion Agregada Exitosamente.");
                     AlbumCB.setSelectedIndex(0);
@@ -660,6 +889,7 @@ public class GUI extends javax.swing.JFrame {
                     GenderSong.setText("");
                 }
                 songs.add(nueva);
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(SongsLog, "No ingreso los segundos bien.");
             }
@@ -676,16 +906,130 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-        
+        this.setVisible(false);
+        LoginScreen.pack();
+        LoginScreen.setVisible(true);
+        LoginUsername.setText("");
+        LoginPassword.setText("");
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
         // TODO add your handling code here:'
         String AttUsername = LoginUsername.getText();
         String AttPassword = LoginPassword.getText();
+        int show = 0;
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getUsername().equals(AttUsername) && users.get(i).getPassword().equals(AttPassword)) {
+                JOptionPane.showMessageDialog(LoginScreen, "Exitosamente logineado.");
+                LoginScreen.setVisible(false);
+                actual = users.get(i);
+                usernameg = AttUsername;
+                pglobal = AttPassword;
+                LoggedHomeScreen.pack();
+                LoggedHomeScreen.setVisible(true);
+                show++;
+            }
+        }
+        if (show == 0) {
+            JOptionPane.showMessageDialog(LoginScreen, "No se pudo Login con sus credenciales.");
+        }
         LoginUsername.setText("");
         LoginPassword.setText("");
     }//GEN-LAST:event_jButton14MouseClicked
+
+    private void jButton16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton16MouseClicked
+        // TODO add your handling code here:
+        String x = JOptionPane.showInputDialog(LoggedHomeScreen, "Ingrese el nombre de la Playlist");
+        Playlists temporal = new Playlists(x);
+        if (actual.getPlaylists().contains(temporal)) {
+            JOptionPane.showMessageDialog(LoggedHomeScreen, "Ya existe la playlist");
+        } else {
+            actual.getPlaylists().add(temporal);
+            JOptionPane.showMessageDialog(LoggedHomeScreen, "Creacion Exitosa.");
+
+        }
+
+    }//GEN-LAST:event_jButton16MouseClicked
+
+    private void jButton21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MouseClicked
+        // TODO add your handling code here:
+        if (AlbumTablePreSHOW.getSelectedRow() >= 0) {
+            DefaultTableModel modelo = (DefaultTableModel) TableSoncs.getModel();
+            modelo.getDataVector().removeAllElements();
+            revalidate();
+            int row = AlbumTablePreSHOW.getSelectedRow();
+            for (int i = 0; i < albums.get(row).getCanciones().size(); i++) {
+                String nombre = albums.get(row).getCanciones().get(i).getNombre();
+                String artista = albums.get(row).getCanciones().get(i).getArtista();
+                String duracion = albums.get(row).getCanciones().get(i).getDuracion();
+                String genero = albums.get(row).getCanciones().get(i).getGenero();
+                modelo.addRow(new Object[]{nombre, artista, duracion, genero});
+                current = albums.get(row).getCanciones().get(i);
+                currt = albums.get(row);
+            }
+            TableSoncs.setModel(modelo);
+        }
+    }//GEN-LAST:event_jButton21MouseClicked
+
+    private void jButton20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton20MouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) AlbumTablePreSHOW.getModel();
+        modelo.getDataVector().removeAllElements();
+        revalidate();
+        for (int i = 0; i < albums.size(); i++) {
+            String nombre = albums.get(i).getNombre();
+            String artista = albums.get(i).getArtista();
+            modelo.addRow(new Object[]{nombre, artista});
+        }
+        AlbumTablePreSHOW.setModel(modelo);
+    }//GEN-LAST:event_jButton20MouseClicked
+
+    private void jButton15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton15MouseClicked
+        // TODO add your handling code here:
+        Explore.pack();
+        Explore.setVisible(true);
+    }//GEN-LAST:event_jButton15MouseClicked
+
+    private void jButton23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton23MouseClicked
+        // TODO add your handling code here:
+        PlayLCB.setModel(new DefaultComboBoxModel(actual.getPlaylists().toArray()));
+    }//GEN-LAST:event_jButton23MouseClicked
+
+    private void jButton22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton22MouseClicked
+        // TODO add your handling code here:
+        if (TableSoncs.getSelectedRow() >= 0) {
+            if (PlayLCB.getSelectedIndex() >= 0) {
+                int row = PlayLCB.getSelectedIndex();
+                actuation = (Playlists)actual.getPlaylists().get(row);
+                actuation.AddSong(current);
+                JOptionPane.showMessageDialog(Explore, "Exito");
+            }
+        }
+
+    }//GEN-LAST:event_jButton22MouseClicked
+
+    private void jButton24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton24MouseClicked
+        // TODO add your handling code here:
+        DefaultTreeModel modelo = (DefaultTreeModel)Jtree.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode)modelo.getRoot();
+        raiz.removeAllChildren();
+        for (int i = 0; i < actual.getPlaylists().size(); i++) {
+            DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(actual.getPlaylists().get(i));
+            Playlists tempg = (Playlists)actual.getPlaylists().get(i);
+            for (int j = 0; j < tempg.getSongs().size(); j++) {
+                nodo.add(new DefaultMutableTreeNode(tempg.getSongs().get(i)));
+            }
+            raiz.add(nodo);
+            
+        }
+        modelo.reload();
+    }//GEN-LAST:event_jButton24MouseClicked
+
+    private void jButton17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton17MouseClicked
+        // TODO add your handling code here:
+        showplaylists.pack();
+        showplaylists.setVisible(true);
+    }//GEN-LAST:event_jButton17MouseClicked
 
     /**
      * @param args the command line arguments
@@ -724,20 +1068,31 @@ public class GUI extends javax.swing.JFrame {
     static ArrayList<Usuarios> users = new ArrayList();
     static ArrayList<Album> albums = new ArrayList();
     static ArrayList<cancion> songs = new ArrayList();
+    static Usuarios actual;
+    static String usernameg;
+    static String pglobal;
+    static cancion current;
+    static Playlists actuation;
+    static Album currt;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AlbumCB;
     private javax.swing.JTable AlbumTable;
+    private javax.swing.JTable AlbumTablePreSHOW;
     private javax.swing.JDialog AlbumsLig;
     private javax.swing.JTextField ArtistSong;
     private javax.swing.JTextField DurationSong;
+    private javax.swing.JDialog Explore;
     private javax.swing.JTextField GenderSong;
+    private javax.swing.JTree Jtree;
     private javax.swing.JDialog LoggedHomeScreen;
     private javax.swing.JPasswordField LoginPassword;
     private javax.swing.JDialog LoginScreen;
     private javax.swing.JTextField LoginUsername;
     private javax.swing.JTextField NameSong;
+    private javax.swing.JComboBox<String> PlayLCB;
     private javax.swing.JDialog SongsLog;
-    private javax.swing.JList<String> UsersJlist;
+    private javax.swing.JTable TableSoncs;
+    private javax.swing.JTable UsersJtree;
     private javax.swing.JDialog UsersLog;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -751,6 +1106,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -771,5 +1131,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JDialog showplaylists;
     // End of variables declaration//GEN-END:variables
 }

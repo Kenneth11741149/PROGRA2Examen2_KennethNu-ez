@@ -17,7 +17,7 @@ public class Usuarios implements Serializable {
      private String edad;
      private String username;
      private String password;
-     private ArrayList playlists = new ArrayList();
+     private ArrayList<Playlists> playlists = new ArrayList();
      private ArrayList favoritos = new ArrayList();
      private static final long SerialVersioUID=767L;
 
