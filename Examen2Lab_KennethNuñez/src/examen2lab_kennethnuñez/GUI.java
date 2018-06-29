@@ -89,6 +89,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jButton26 = new javax.swing.JButton();
         showplaylists = new javax.swing.JDialog();
         jScrollPane5 = new javax.swing.JScrollPane();
         Jtree = new javax.swing.JTree();
@@ -96,6 +97,11 @@ public class GUI extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         POPUPELIM = new javax.swing.JPopupMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        Favs = new javax.swing.JDialog();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jButton27 = new javax.swing.JButton();
+        jButton28 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -438,6 +444,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         jButton18.setText("Ver Favoritos");
+        jButton18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton18MouseClicked(evt);
+            }
+        });
 
         jButton19.setText("Salir");
         jButton19.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -581,31 +592,43 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel12.setText("A cual playlist agregaras?");
 
+        jButton26.setText("Agregar A favoritas");
+        jButton26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton26MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout ExploreLayout = new javax.swing.GroupLayout(Explore.getContentPane());
         Explore.getContentPane().setLayout(ExploreLayout);
         ExploreLayout.setHorizontalGroup(
             ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ExploreLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton22)
+                .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(ExploreLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(ExploreLayout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(jLabel12)))
-                        .addGap(39, 39, 39)
+                                .addComponent(jLabel12))
+                            .addGroup(ExploreLayout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(jButton22))
+                            .addGroup(ExploreLayout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(jButton26)))))
+                .addGap(17, 17, 17)
+                .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PlayLCB, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButton23)
                         .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PlayLCB, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton23)
-                                .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
+                            .addComponent(jLabel10)
+                            .addGroup(ExploreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ExploreLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -638,12 +661,14 @@ public class GUI extends javax.swing.JFrame {
                                 .addComponent(jButton23)
                                 .addGap(18, 18, 18)
                                 .addComponent(PlayLCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(jButton22)
-                                .addGap(236, 236, 236))
+                                .addGap(299, 299, 299))
                             .addGroup(ExploreLayout.createSequentialGroup()
                                 .addComponent(jLabel12)
-                                .addGap(319, 319, 319))))))
+                                .addGap(57, 57, 57)
+                                .addComponent(jButton22)
+                                .addGap(27, 27, 27)
+                                .addComponent(jButton26)
+                                .addGap(185, 185, 185))))))
         );
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Playlists");
@@ -693,6 +718,44 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         POPUPELIM.add(jMenuItem1);
+
+        jList1.setModel(new DefaultListModel());
+        jScrollPane6.setViewportView(jList1);
+
+        jButton27.setText("Refrescar");
+        jButton27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton27MouseClicked(evt);
+            }
+        });
+
+        jButton28.setText("Play:)");
+
+        javax.swing.GroupLayout FavsLayout = new javax.swing.GroupLayout(Favs.getContentPane());
+        Favs.getContentPane().setLayout(FavsLayout);
+        FavsLayout.setHorizontalGroup(
+            FavsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FavsLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                .addGroup(FavsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton27, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton28, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(108, 108, 108))
+        );
+        FavsLayout.setVerticalGroup(
+            FavsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FavsLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(FavsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FavsLayout.createSequentialGroup()
+                        .addComponent(jButton27)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton28))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1111,7 +1174,8 @@ public class GUI extends javax.swing.JFrame {
             Jtree.setSelectionRow(row); //Lo hago seleccionado
             Object v1 = Jtree.getSelectionPath().getLastPathComponent(); //Le pregunto cual es el seleccionado y lo extraigo.
             nodo_seleccionado = (DefaultMutableTreeNode) v1;
-            if(nodo_seleccionado.getUserObject() instanceof cancion ){
+            int hei = 0;
+            if(nodo_seleccionado.getUserObject() instanceof cancion ){                
                 cancionsel = (cancion) nodo_seleccionado.getUserObject();
                 POPUPELIM.show(evt.getComponent(), evt.getX(), evt.getY());                
             }
@@ -1124,6 +1188,34 @@ public class GUI extends javax.swing.JFrame {
         m.removeNodeFromParent(nodo_seleccionado);
         m.reload();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jButton26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton26MouseClicked
+        // TODO add your handling code here:
+        if (TableSoncs.getSelectedRow() >= 0) {
+            if (PlayLCB.getSelectedIndex() >= 0) {
+                int row = PlayLCB.getSelectedIndex();
+                actual.getFavoritos().add(current);
+                
+                JOptionPane.showMessageDialog(Explore, "Exito");
+            }
+        }
+    }//GEN-LAST:event_jButton26MouseClicked
+
+    private void jButton27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton27MouseClicked
+        // TODO add your handling code here:
+        DefaultListModel modelo = (DefaultListModel)jList1.getModel();
+        modelo.removeAllElements();
+        for (int i = 0; i < actual.getFavoritos().size(); i++) {
+            modelo.addElement(actual.getFavoritos().get(i));
+        }
+        jList1.setModel(modelo);
+    }//GEN-LAST:event_jButton27MouseClicked
+
+    private void jButton18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton18MouseClicked
+        // TODO add your handling code here:
+        Favs.pack();
+        Favs.setVisible(true);
+    }//GEN-LAST:event_jButton18MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1178,6 +1270,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField ArtistSong;
     private javax.swing.JTextField DurationSong;
     private javax.swing.JDialog Explore;
+    private javax.swing.JDialog Favs;
     private javax.swing.JTextField GenderSong;
     private javax.swing.JTree Jtree;
     private javax.swing.JDialog LoggedHomeScreen;
@@ -1209,6 +1302,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -1228,6 +1324,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1236,6 +1333,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JDialog showplaylists;
     // End of variables declaration//GEN-END:variables
