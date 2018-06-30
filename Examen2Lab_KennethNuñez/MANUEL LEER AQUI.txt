@@ -1,0 +1,46 @@
+											Viernes 29 de junio del 2018
+
+Estimado Manuel Padilla,
+
+Mediante la presente intento yo hacer una declaracion de todo lo que no pude lograr en este proyecto, de acuerdo con
+tus Instrucciones. Puedo empezar declarando la funcionalidad de mi programa:
+
+1. El programa es totalmente capaz de Guardar Usuarios y Cargar usuarios de un archivo Binario.
+2. El programa es capaz de crear usuarios.
+3. El programa es capaz de crear canciones.
+4. El programa es capaz de crear albumes. 
+(De acuerdo con las especificaciones del Laboratiorio no se guardan explicitamente los albumes 
+y se REQUIERE que el usuario tenga que crear albumes y canciones cada vez pero es un problema menor
+ya que asi se nos dijo que lo hicieramos).
+5. El programa es capaz de hacer login y esta funcional al 99.99% de los casos ya que me imagino que algo se 
+me pudo escapar.
+6. El programa tiene funcional la pestaña explorar pero tiene que hacer una serie de pasos antes de hacerlo exitosamente.
+Usted tiene que presionar el boton load albums para que los albums carguen. Despues elegir uno de la tabla y despues 
+presionar el boton mostrar canciones. Posteriormente tiene que seleccionar una cancion y elegir que hacer con esa cancion
+si agregarla a la playlist seleccionada en el combo box o agregarla a favoritos. Sin mencionar que le tiene 
+que dar refreshplaylists.
+7. Crear playlists esta totalmente funcional y validado.
+8.Ver playlists esta funcional pero requiere del presionado del boton cargar arbol. BOTON DERECHO ESTA ACTIVADO.
+9.Cargar favoritos tiene funcional todo desde la reproduccion de una cancion, pero requiere que usted la cierre cuando termine
+de oirla, pero requiere que usted le de actualizar arbol.
+10. El programa tiene una funcionalidad extra para propositos de revision de guardar todo en el menu secundario. asi usted
+salirse y el programa aun guarda todo.
+11. Salir esta totalmente funcional.
+
+El programa cuenta con una serie de funciones que talvez no esten funcional al 100% tales como:
+1. El progrma por diseño borra el album completo con las canciones pero lo declaro como posible error porque
+solo por si en el remoto caso llegara a fallar.
+2. El programa no tiene totalmente funcional lo de cerrar Ventanas. el proposito es que todos los dialogs
+cuando se cerraran devolvieran a su ventana padre con un .setvisible y .pack y por eso es que necesitas darle refresh a todo
+lo que tiene boton refresh.
+3. el programa NO ES CAPAZ de borrar canciones del nodo ya que envez borra el nodo padre.
+4. el programa no es capaz de cerrar la ventana de un solo cuando termina de reproducir una cancion.
+5. El programa a mi conocimiento no falla en nada mas.
+El proposito de esta declaracion de funcionalidad es que el tamaño de este texto refleje mi agradecimiento a vos por habernos
+dado mas tiempo para realizar el LAB <3. Y me parece que hablo por muchos cuando te digo GRACIAS.
+
+
+
+	Muy agradecido;
+	Kenneth Van Yableth Nuñez Machorro
+

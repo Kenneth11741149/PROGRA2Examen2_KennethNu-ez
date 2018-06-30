@@ -76,6 +76,7 @@ public class GUI extends javax.swing.JFrame {
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
         jButton25 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         Explore = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
         AlbumTablePreSHOW = new javax.swing.JTable();
@@ -102,6 +103,17 @@ public class GUI extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
         jButton27 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
+        jDialog1 = new javax.swing.JDialog();
+        jLabel13 = new javax.swing.JLabel();
+        LabelRep = new javax.swing.JLabel();
+        TimeLabel = new javax.swing.JLabel();
+        barrval = new javax.swing.JProgressBar();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        maxlabg = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -464,6 +476,19 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jPanel3.setBackground(new java.awt.Color(0, 0, 255));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 76, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout LoggedHomeScreenLayout = new javax.swing.GroupLayout(LoggedHomeScreen.getContentPane());
         LoggedHomeScreen.getContentPane().setLayout(LoggedHomeScreenLayout);
         LoggedHomeScreenLayout.setHorizontalGroup(
@@ -479,11 +504,13 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(30, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         LoggedHomeScreenLayout.setVerticalGroup(
             LoggedHomeScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LoggedHomeScreenLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
                 .addComponent(jButton15)
                 .addGap(18, 18, 18)
                 .addComponent(jButton16)
@@ -493,7 +520,7 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jButton18)
                 .addGap(18, 18, 18)
                 .addComponent(jButton19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jButton25)
                 .addContainerGap())
         );
@@ -730,6 +757,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         jButton28.setText("Play:)");
+        jButton28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton28MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout FavsLayout = new javax.swing.GroupLayout(Favs.getContentPane());
         Favs.getContentPane().setLayout(FavsLayout);
@@ -755,6 +787,96 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jButton28))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
+        );
+
+        jDialog1.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                jDialog1WindowClosing(evt);
+            }
+        });
+
+        jLabel13.setText("Song:");
+
+        LabelRep.setText("jLabel14");
+
+        TimeLabel.setText("jLabel14");
+
+        jLabel14.setText("Designed by Apple in California");
+
+        jLabel15.setText("/");
+
+        maxlabg.setText("jLabel16");
+
+        jLabel16.setText("Segundos");
+
+        jLabel17.setText("Segundos");
+
+        jPanel4.setBackground(new java.awt.Color(51, 51, 255));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(jLabel14))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(barrval, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jDialog1Layout.createSequentialGroup()
+                                .addComponent(TimeLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel16)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(maxlabg)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel17)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(87, Short.MAX_VALUE))
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addComponent(jLabel13)
+                .addGap(42, 42, 42)
+                .addComponent(LabelRep)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(LabelRep))
+                .addGap(50, 50, 50)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TimeLabel)
+                    .addComponent(jLabel15)
+                    .addComponent(maxlabg)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17))
+                .addGap(18, 18, 18)
+                .addComponent(barrval, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel14)
+                .addGap(32, 32, 32))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -913,6 +1035,13 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         UsersLog.pack();
         UsersLog.setVisible(true);
+        DefaultTableModel modelo = (DefaultTableModel) UsersJtree.getModel();
+        modelo.getDataVector().removeAllElements();
+        revalidate();
+        for (int i = 0; i < users.size(); i++) {
+            modelo.addRow(new Object[]{users.get(i).getNombre(), users.get(i).getUsername(), users.get(i).getPassword()});
+        }
+        UsersJtree.setModel(modelo);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
@@ -942,7 +1071,15 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         AlbumsLig.pack();
         AlbumsLig.setVisible(true);
-
+        DefaultTableModel modelo = (DefaultTableModel) AlbumTable.getModel();
+        modelo.getDataVector().removeAllElements();
+        for (int i = 0; i < albums.size(); i++) {
+            String nombre = albums.get(i).getNombre();
+            String artista = albums.get(i).getArtista();
+            String canciones = albums.get(i).getCanciones().toString();
+            modelo.addRow(new Object[]{nombre, artista, canciones});
+        }
+        AlbumTable.setModel(modelo);
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
@@ -1123,7 +1260,7 @@ public class GUI extends javax.swing.JFrame {
         if (TableSoncs.getSelectedRow() >= 0) {
             if (PlayLCB.getSelectedIndex() >= 0) {
                 int row = PlayLCB.getSelectedIndex();
-                actuation = (Playlists)actual.getPlaylists().get(row);
+                actuation = (Playlists) actual.getPlaylists().get(row);
                 actuation.AddSong(current);
                 JOptionPane.showMessageDialog(Explore, "Exito");
             }
@@ -1133,17 +1270,17 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton24MouseClicked
         // TODO add your handling code here:
-        DefaultTreeModel modelo = (DefaultTreeModel)Jtree.getModel();
-        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode)modelo.getRoot();
+        DefaultTreeModel modelo = (DefaultTreeModel) Jtree.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelo.getRoot();
         raiz.removeAllChildren();
         for (int i = 0; i < actual.getPlaylists().size(); i++) {
             DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(actual.getPlaylists().get(i));
-            Playlists tempg = (Playlists)actual.getPlaylists().get(i);
+            Playlists tempg = (Playlists) actual.getPlaylists().get(i);
             for (int j = 0; j < tempg.getSongs().size(); j++) {
                 nodo.add(new DefaultMutableTreeNode(tempg.getSongs().get(i)));
             }
             raiz.add(nodo);
-            
+
         }
         modelo.reload();
     }//GEN-LAST:event_jButton24MouseClicked
@@ -1168,16 +1305,16 @@ public class GUI extends javax.swing.JFrame {
 
     private void JtreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JtreeMouseClicked
         // TODO add your handling code here:
-        if(evt.isMetaDown()){
+        if (evt.isMetaDown()) {
             //Seleccionar un nodo con click derecho
             int row = Jtree.getClosestRowForLocation(evt.getX(), evt.getY());
             Jtree.setSelectionRow(row); //Lo hago seleccionado
             Object v1 = Jtree.getSelectionPath().getLastPathComponent(); //Le pregunto cual es el seleccionado y lo extraigo.
             nodo_seleccionado = (DefaultMutableTreeNode) v1;
             int hei = 0;
-            if(nodo_seleccionado.getUserObject() instanceof cancion ){                
+            if (nodo_seleccionado.getUserObject() instanceof cancion) {
                 cancionsel = (cancion) nodo_seleccionado.getUserObject();
-                POPUPELIM.show(evt.getComponent(), evt.getX(), evt.getY());                
+                POPUPELIM.show(evt.getComponent(), evt.getX(), evt.getY());
             }
         }
     }//GEN-LAST:event_JtreeMouseClicked
@@ -1195,7 +1332,7 @@ public class GUI extends javax.swing.JFrame {
             if (PlayLCB.getSelectedIndex() >= 0) {
                 int row = PlayLCB.getSelectedIndex();
                 actual.getFavoritos().add(current);
-                
+
                 JOptionPane.showMessageDialog(Explore, "Exito");
             }
         }
@@ -1203,7 +1340,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButton27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton27MouseClicked
         // TODO add your handling code here:
-        DefaultListModel modelo = (DefaultListModel)jList1.getModel();
+        DefaultListModel modelo = (DefaultListModel) jList1.getModel();
         modelo.removeAllElements();
         for (int i = 0; i < actual.getFavoritos().size(); i++) {
             modelo.addElement(actual.getFavoritos().get(i));
@@ -1215,7 +1352,38 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         Favs.pack();
         Favs.setVisible(true);
+
     }//GEN-LAST:event_jButton18MouseClicked
+
+    private void jButton28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton28MouseClicked
+        // TODO add your handling code here:
+        if (jList1.getSelectedIndex() >= 0) {
+            int row = jList1.getSelectedIndex();
+            jDialog1.pack();
+            jDialog1.setVisible(true);
+            cancion x = (cancion)actual.getFavoritos().get(row);
+            String nombre = x.getNombre();
+            int duracion = Integer.parseInt(x.getDuracion());
+            TimeLabel.setText("0");
+            barrval.setValue(0);
+            barrval.setMaximum(duracion);
+            maxlabg.setText(x.getDuracion());
+            LabelRep.setText(nombre);
+            xer = new Player(LabelRep,TimeLabel,duracion,barrval);
+            xer.start();
+            Favs.setVisible(false);
+        }
+
+    }//GEN-LAST:event_jButton28MouseClicked
+
+    private void jDialog1WindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_jDialog1WindowClosing
+        // TODO add your handling code here:
+        xer.stop();
+        jDialog1.setVisible(false);
+        Favs.pack();
+        Favs.setVisible(true);
+        Favs.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jDialog1WindowClosing
 
     /**
      * @param args the command line arguments
@@ -1262,6 +1430,7 @@ public class GUI extends javax.swing.JFrame {
     static Album currt;
     static DefaultMutableTreeNode nodo_seleccionado;
     static cancion cancionsel;
+    static Player xer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AlbumCB;
     private javax.swing.JTable AlbumTable;
@@ -1273,6 +1442,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JDialog Favs;
     private javax.swing.JTextField GenderSong;
     private javax.swing.JTree Jtree;
+    private javax.swing.JLabel LabelRep;
     private javax.swing.JDialog LoggedHomeScreen;
     private javax.swing.JPasswordField LoginPassword;
     private javax.swing.JDialog LoginScreen;
@@ -1282,8 +1452,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> PlayLCB;
     private javax.swing.JDialog SongsLog;
     private javax.swing.JTable TableSoncs;
+    private javax.swing.JLabel TimeLabel;
     private javax.swing.JTable UsersJtree;
     private javax.swing.JDialog UsersLog;
+    private javax.swing.JProgressBar barrval;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -1312,10 +1484,16 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1328,6 +1506,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1335,6 +1515,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel maxlabg;
     private javax.swing.JDialog showplaylists;
     // End of variables declaration//GEN-END:variables
 }
